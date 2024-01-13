@@ -8,7 +8,8 @@ class Program
         Random randomGenerator = new Random();
         string userGuess;
         string playAgain;
-        while (true)
+        bool stillPlaying = true;
+        while (stillPlaying == true)
         {
             int magicNumber = randomGenerator.Next(1,100);
             bool guessCorrect = false;
@@ -16,7 +17,6 @@ class Program
             while (guessCorrect == false)
             {
                 Console.WriteLine($"Current Number of Guesses: {guessNum}");
-                Console.WriteLine($"My number is {magicNumber}");
                 Console.WriteLine("What is your guess?");
                 
                 userGuess = Console.ReadLine();
@@ -39,12 +39,24 @@ class Program
                 }
                 guessNum += 1;
             }
-            Console.WriteLine("\nWould you like to play again? Yes / No");
-            playAgain = Console.ReadLine().ToLower();
-            if (playAgain == "no")
+            while (true)
             {
-                Console.WriteLine("Goodbye :)");
-                break;
+                Console.WriteLine("\nWould you like to play again? Yes / No");
+                playAgain = Console.ReadLine().ToLower();
+                if (playAgain == "no")
+                {
+                    Console.WriteLine("Goodbye :)");
+                    stillPlaying = false;
+                    break;
+                }
+                else if (playAgain == "yes")
+                {
+                    Console.WriteLine("CLEARING VARIABLES");
+                }
+                else
+                {
+                    Console.WriteLine("Enter a valid response.");
+                }
             }
         }
 
