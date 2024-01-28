@@ -63,7 +63,7 @@ public class Scripture
             if (wordsChanged == rndNumber)
             {
                 break;
-            }
+            } 
         }
     }
     public string GetDisplayText()

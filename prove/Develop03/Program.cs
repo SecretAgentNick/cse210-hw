@@ -10,12 +10,15 @@ class Program
         
         while (true)
         {
+            string beforeReplacement = scripture1.GetDisplayText();
             System.Console.WriteLine(scripture1.GetDisplayText());
             Console.WriteLine("Press Enter or type 'quit' to finish:");
             string userInput = Console.ReadLine();
-
             scripture1.HideRandomWords(1);
-            
+            if (scripture1.GetDisplayText() == beforeReplacement)
+            {
+                break;
+            }
             if (userInput.ToLower() == "quit")
             {
                 break;
