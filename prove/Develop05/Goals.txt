@@ -1,0 +1,4 @@
+225
+SimpleGoal, Simple, simpel, 5, True
+EternalGoal, Goal 2, descrip, 50
+ChecklistGoal, Check, Me, 60, True
