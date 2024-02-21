@@ -1,6 +1,16 @@
-public class Treasure
+public class Treasure : Entity
 {
-    private string _type;
-    private int _value;
-    private string _effect;
+    private int _worth;
+    public Treasure(string name, int initialHealth, int initialRow, int initialColumn, int attackPower) : base (name, initialHealth, initialRow, initialColumn, attackPower)
+    {
+        _worth = 10;
+    }
+    public override bool IsPlayer()
+    {
+        return false;
+    }
+    public int GetWorth()
+    {
+        return _worth;
+    }
 }

@@ -1,14 +1,27 @@
 public class Monster : Entity
 {
-    private int _damage;
-    private int _attackRange;
-    private int _aggressionLevel;
-
-    public Monster(string name, string description, int initialHealth, int damage, int attackRange, int aggressionLevel)
-        : base(name, description, initialHealth)
+    private int _cooldown;
+    public Monster(string name, int initialHealth, int initialRow, int initialColumn, int attackPower) : base (name, initialHealth, initialRow, initialColumn, attackPower)
     {
-        this._damage = damage;
-        this._attackRange = attackRange;
-        this._aggressionLevel = aggressionLevel;
+        _cooldown = 1;
+    }
+    public int GetCooldown()
+    {
+        return _cooldown;
+    }
+
+    public override bool IsPlayer()
+    {
+        return false;
+    }
+    public void ResetCooldown()
+    {
+        _cooldown = 3;
+
+    }
+
+    public void DecrementCooldown()
+    {
+        _cooldown = Math.Max(0, _cooldown - 1);
     }
 }
